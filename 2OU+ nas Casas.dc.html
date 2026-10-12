@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2OU+ nas Casas — pequenos grupos</title>
+<meta name="description" content="Encontre um grupo do 2OU+ nas Casas perto de você em Jacareí: endereço, dia e horário de cada casa.">
+<meta property="og:title" content="2OU+ nas Casas">
+<meta property="og:description" content="A igreja além do domingo: encontre seu 2ou+ e caminhe com a gente.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,800;0,900;1,600;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #000000; }
+  .leaflet-container { background: #141412; font-family: Poppins, sans-serif; }
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #F0E8DC; color: #0A0A0A; border-radius: 12px; }
+  .leaflet-popup-content { margin: 14px 16px; font-size: 13px; line-height: 1.45; }
+  .leaflet-control-attribution { background: rgba(10,10,10,.7) !important; color: #8A8578 !important; }
+  .leaflet-control-attribution a { color: #8A8578 !important; }
+  * { box-sizing: border-box; }
+  a { color: #E8D44D; text-decoration: none; }
+  a:hover { color: #F0E8DC; }
+  ::selection { background: #E8D44D; color: #0A0A0A; }
+</style>
+</helmet>
+<div style="background:#000000;color:#F0E8DC;font-family:Poppins,Helvetica,sans-serif;overflow-x:hidden">
+
+  <div style="height:22px;background-image:repeating-conic-gradient(#E8D44D 0% 25%, #0A0A0A 0% 50%);background-size:22px 22px"></div>
+
+  <section style="position:relative;padding:clamp(26px,6vw,64px) clamp(18px,5vw,64px) clamp(44px,8vw,88px);max-width:1240px;margin:0 auto">
+    <img src="assets/logo-cream-alpha.png" alt="2OU+" style="display:block;width:min(78%,520px);height:auto">
+    <div style="font-size:clamp(20px,5.6vw,44px);font-weight:900;letter-spacing:.02em;line-height:1;margin-top:clamp(6px,1.5vw,14px);color:#F0E8DC">A IGREJA CONTINUA NAS CASAS.</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(30px,5vw,60px);align-items:start;margin-top:clamp(34px,6vw,64px)">
+
+      <div>
+        <div style="font-size:clamp(23px,5.4vw,40px);font-weight:500;line-height:1.3;letter-spacing:-.01em;text-align:justify;text-transform:uppercase;color:#F0E8DC">
+          <p style="margin:0 0 1.1em">UMA MESA PODE PARECER MUITO <span style="display:inline-block;width:2.4em;height:.5em;vertical-align:middle;background-image:repeating-conic-gradient(#F0E8DC 0% 25%, #0A0A0A 0% 50%);background-size:.25em .25em"></span> <strong style="font-weight:900">SIMPLES.</strong></p>
+          <p style="margin:0 0 1.1em">UMA <strong style="font-weight:900">CONVERSA</strong> PODE PARECER POUCA COISA.</p>
+          <p style="margin:0">UMA ORAÇÃO PODE PARECER <strong style="font-weight:900">COMUM.</strong></p>
+        </div>
+
+        <div style="margin-top:clamp(28px,4.5vw,44px);background:#E8D44D;color:#0A0A0A;border-radius:22px;padding:clamp(22px,3.6vw,34px) clamp(22px,3.6vw,36px);font-size:clamp(21px,5vw,36px);font-weight:500;line-height:1.25;text-transform:uppercase;letter-spacing:-.01em">MAS O QUE MUDA TUDO É A <em style="font-weight:900;font-style:italic">UNIDADE.</em></div>
+
+        <a href="#grupos" style="display:inline-flex;align-items:center;gap:12px;margin-top:clamp(24px,4vw,36px);background:#F0E8DC;color:#0A0A0A;border-radius:999px;padding:15px 24px;font-size:clamp(15px,3.6vw,19px);font-weight:900" style-hover="background:#E8D44D">
+          Encontre seu 2ou+
+          <span style="width:30px;height:30px;border-radius:50%;background:#000000;color:#F0E8DC;display:flex;align-items:center;justify-content:center;font-weight:600">↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#E8D44D;color:#0A0A0A;padding:clamp(44px,8vw,96px) clamp(18px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase">01 — O que é</div>
+
+      <p style="font-size:clamp(24px,5.6vw,46px);font-weight:800;font-style:italic;text-transform:uppercase;line-height:1.28;letter-spacing:-.02em;margin:clamp(18px,3vw,30px) 0 0;max-width:22em;text-wrap:pretty">Deus nunca nos chamou para fazermos nada sozinhos. Tudo o que Ele faz <span style="background:#5B7FE0;color:#F0E8DC;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone">acontece por meio do seu corpo aqui na terra.</span></p>
+
+      <div style="margin-top:clamp(26px,4vw,40px);max-width:560px;position:relative">
+        <div style="background:#5B7FE0;color:#fff;border-radius:24px;padding:18px 24px;font-size:clamp(17px,4vw,25px);font-weight:600;font-style:italic;line-height:1.35">É por isso que o Reino de Deus cresce por meio de pessoas.</div>
+        <div style="position:absolute;left:2px;bottom:0;width:20px;height:20px;background:#5B7FE0;clip-path:polygon(100% 0,100% 100%,0 100%)"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(30px,5vw,56px);align-items:center;margin-top:clamp(36px,6vw,64px)">
+        <div style="background:#F7F4EF;border-radius:18px;overflow:hidden;box-shadow:12px 12px 0 rgba(10,10,10,.18)">
+          <div style="display:flex;align-items:center;gap:9px;padding:14px 18px;background:#E9E2F0">
+            <div style="width:13px;height:13px;border-radius:50%;background:#E23B2E"></div>
+            <div style="width:13px;height:13px;border-radius:50%;background:#E8B93B"></div>
+            <div style="width:13px;height:13px;border-radius:50%;background:#3FBF63"></div>
+          </div>
+          <div style="padding:clamp(24px,4vw,38px);color:#141412;font-size:clamp(15px,3.6vw,19px);line-height:1.6;font-weight:400;text-align:justify;text-wrap:pretty">
+            <div style="font-size:clamp(22px,5vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1;text-align:left">2OU+</div>
+            <div style="font-size:clamp(17px,4vw,23px);font-weight:800;letter-spacing:-.02em;line-height:1.25;margin:10px 0 1.2em;text-align:left">Ninguém foi chamado para caminhar sozinho.</div>
+            <blockquote style="margin:0 0 1.2em;border-left:5px solid #0A0A0A;padding-left:16px;text-align:left">
+              <p style="margin:0;font-weight:800;font-style:italic;line-height:1.4">“Onde estiverem dois ou três reunidos em meu nome, ali estou no meio deles.”</p>
+              <p style="margin:6px 0 0;font-size:.8em;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Mateus 18:20</p>
+            </blockquote>
+            <p style="margin:0 0 1.2em">O 2ou+ é a igreja vivendo além do domingo: <strong style="font-weight:800">nos templos e nas casas, ao redor da mesa, compartilhando a vida e caminhando em direção a Jesus.</strong></p>
+            <p style="margin:0 0 1.2em">Um lugar para ser visto, cuidado, crescer e também cuidar.</p>
+            <p style="margin:0 0 1.2em"><strong style="font-weight:800">Mais que uma reunião. Família, comunhão e Jesus no centro.</strong></p>
+            <p style="margin:0"><strong style="font-weight:800">Encontre seu 2ou+ e caminhe com a gente.</strong></p>
+          </div>
+        </div>
+
+        <div>
+          <img src="assets/verse-stack-alpha.png" alt="Porque onde estiverem dois ou três reunidos em meu nome, ali estou no meio deles" loading="lazy" style="display:block;width:100%;height:auto;max-width:540px;margin:0 auto">
+          <div style="text-align:center;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-top:12px">Mateus 18.20</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;background:#F0E8DC;color:#0A0A0A;padding:clamp(48px,9vw,110px) clamp(18px,5vw,64px);overflow:hidden">
+
+    <div style="max-width:1240px;margin:0 auto;position:relative">
+      <p style="margin:0;font-size:clamp(24px,5.8vw,46px);font-weight:500;line-height:1.4;letter-spacing:-.02em;max-width:17em"><span style="background:#E8D44D;padding:0 .1em;box-decoration-break:clone;-webkit-box-decoration-break:clone">Unidade não significa <em style="font-weight:800;font-style:italic">pensar igual em tudo.</em></span></p>
+      <p style="margin:clamp(22px,3.5vw,34px) 0 0;font-size:clamp(24px,5.8vw,46px);font-weight:800;font-style:italic;line-height:1.35;letter-spacing:-.02em;max-width:17em;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-align:justify">Significa permanecer juntos, movidos pelo mesmo propósito.</p>
+    </div>
+  </section>
+
+  <section id="grupos" style="background:#000000;padding:clamp(44px,8vw,90px) clamp(18px,5vw,64px) clamp(56px,9vw,110px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#8A8578">02 — Onde ir</div>
+      <h2 style="font-size:clamp(36px,9.5vw,92px);font-weight:900;letter-spacing:-.03em;line-height:.94;margin:12px 0 10px;color:#F0E8DC;text-transform:uppercase">Encontre<br>seu 2ou+</h2>
+      <p style="margin:0 0 clamp(26px,4vw,40px);font-size:clamp(15px,3.7vw,20px);font-weight:500;color:#B8B2A4;max-width:34em">Escolha a categoria, veja no mapa o endereço mais perto de você e apareça. Sem inscrição, sem burocracia: só chegar.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(24px,4vw,38px)">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.onClick }}" style="border:3px solid {{ t.accent }};background:{{ t.bg }};color:{{ t.fg }};border-radius:999px;padding:13px 22px;font-family:Poppins,sans-serif;font-size:clamp(14px,3.4vw,17px);font-weight:900;letter-spacing:.02em;cursor:pointer">{{ t.label }} <span style="opacity:.6">{{ t.count }}</span></button>
+        </sc-for>
+      </div>
+
+      <div style="position:relative;border:2px solid #262622;border-radius:20px;overflow:hidden;margin-bottom:clamp(18px,3vw,28px)">
+        <div ref="{{ mapRef }}" style="width:100%;height:clamp(300px,52vw,460px)"></div>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:14px 18px;background:#141412;border-top:2px solid #262622;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8A8578">
+          <span>{{ geoNote }}</span>
+          <span style="display:flex;align-items:center;gap:7px"><span style="width:12px;height:12px;border-radius:50%;background:#5B7FE0"></span>Casais</span>
+          <span style="display:flex;align-items:center;gap:7px"><span style="width:12px;height:12px;border-radius:50%;background:#E23B2E"></span>Influa</span>
+          <span style="display:flex;align-items:center;gap:7px"><span style="width:12px;height:12px;border-radius:50%;background:#E8D44D"></span>Mulheres</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(14px,2.5vw,22px)">
+        <sc-for list="{{ visibleGroups }}" as="g" hint-placeholder-count="6">
+          <div style="background:#141412;border:2px solid #262622;border-left:8px solid {{ g.accent }};border-radius:20px;padding:clamp(20px,4vw,26px);display:flex;flex-direction:column;gap:14px" style-hover="border-color:{{ g.accent }}">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+              <h3 style="margin:0;font-size:clamp(21px,5vw,27px);font-weight:900;letter-spacing:-.025em;line-height:1.1;color:#F0E8DC">{{ g.leaders }}</h3>
+              <span style="flex:none;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:{{ g.accent }}">{{ g.cat }}</span>
+            </div>
+            <sc-if value="{{ g.audience }}" hint-placeholder-val="{{ true }}">
+              <div style="align-self:flex-start;background:{{ g.accent }};color:#0A0A0A;border-radius:999px;padding:5px 13px;font-size:12px;font-weight:900">{{ g.audience }}</div>
+            </sc-if>
+            <sc-if value="{{ g.hasAddress }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:10px;font-size:14px;line-height:1.5;color:#B8B2A4;font-weight:500">
+              <span style="flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #3A3A34;display:flex;align-items:center;justify-content:center;font-size:11px">◎</span>
+              <span>{{ g.address }} <a href="{{ g.maps }}" target="_blank" rel="noopener" style="white-space:nowrap;font-weight:800;text-decoration:underline;text-underline-offset:3px">ver no mapa ↗</a></span>
+            </div>
+            </sc-if>
+            <div style="display:flex;gap:10px;font-size:14px;color:#F0E8DC;font-weight:700">
+              <span style="flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #3A3A34;display:flex;align-items:center;justify-content:center;font-size:11px">◷</span>
+              <span>{{ g.time }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#000000;padding:0 clamp(18px,5vw,64px) clamp(56px,9vw,100px)">
+    <div style="max-width:1240px;margin:0 auto;background:#141412;border:2px solid #262622;border-radius:24px;padding:clamp(28px,5vw,48px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+      <div>
+        <div style="font-size:clamp(24px,6vw,42px);font-weight:900;letter-spacing:-.03em;line-height:1.05;color:#F0E8DC;text-transform:uppercase">Tem dúvidas?</div>
+        <p style="margin:10px 0 0;font-size:clamp(15px,3.7vw,19px);font-weight:500;color:#B8B2A4;max-width:26em">Chame a gente no WhatsApp que te ajudamos a<br>escolher um 2ou+ mais próximo a você.</p>
+      </div>
+      <a href="{{ waLink }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:12px;background:#25D366;color:#062E14;border-radius:999px;padding:17px 28px;font-size:clamp(16px,3.8vw,19px);font-weight:900;letter-spacing:-.01em" style-hover="background:#F0E8DC;color:#0A0A0A">Chamar no WhatsApp <span style="font-weight:600">→</span></a>
+    </div>
+  </section>
+
+  <footer style="background:#F0E8DC;color:#0A0A0A;padding:clamp(40px,7vw,72px) clamp(18px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between">
+      <div style="max-width:640px">
+        <img src="assets/logo-black-trim.png" alt="2OU+" loading="lazy" style="display:block;width:min(74%,380px);height:auto" />
+        <p style="margin:clamp(16px,3vw,22px) 0 0;font-size:clamp(15px,3.7vw,18px);font-weight:800;line-height:1.5;text-wrap:pretty">Mais que encontros nos lares, somos pessoas caminhando com pessoas. Um lugar para ser visto, cuidado, crescer e também aprender a cuidar.</p>
+      </div>
+      
+    </div>
+    <div style="max-width:1240px;margin:clamp(28px,5vw,44px) auto 0;height:22px;background-image:repeating-conic-gradient(#0A0A0A 0% 25%, #F0E8DC 0% 50%);background-size:22px 22px"></div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;CASAIS&quot;,&quot;INFLUA&quot;,&quot;MULHERES&quot;],&quot;default&quot;:&quot;CASAIS&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Grupos&quot;},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5512976055463&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Grupos&quot;}}">
+const ACCENT = { CASAIS: '#5B7FE0', INFLUA: '#E23B2E', MULHERES: '#E8D44D' };
+const YELLOW = '#E8D44D', BLUE = '#2F6BE8', RED = '#F2231B', CREAM = '#F0E8DC', NONE = 'transparent';
+
+const ARROW_ROWS = [
+  { pill: CREAM, arrows: ['↓', '↓', '↓'], offset: '0px' },
+  { pill: BLUE, arrows: ['↓', '↓', '↓'], offset: '34px' },
+  { pill: CREAM, arrows: ['↓', '↓', '↓'], offset: '0px' },
+  { pill: YELLOW, arrows: ['↓', '↓', '↓'], offset: '10px' },
+  { pill: NONE, arrows: ['↘', '↘', '↗'], offset: '26px' },
+  { pill: RED, arrows: ['↗', '↗', '↗'], offset: '0px' },
+  { pill: CREAM, arrows: ['↗', '↗', '↗'], offset: '18px' },
+  { pill: YELLOW, arrows: ['↗', '↗', '↗'], offset: '0px' },
+  { pill: NONE, arrows: ['↗', '↗', '↗'], offset: '30px' },
+  { pill: BLUE, arrows: ['↗', '↗', '↗'], offset: '8px' }
+];
+
+const CORNER_ROWS = [
+  { pill: YELLOW, arrows: ['↙', '↙', '↙'], offset: '0px' },
+  { pill: NONE, arrows: ['↓', '↙', '↙'], offset: '30px' },
+  { pill: RED, arrows: ['↙', '↙', '↙'], offset: '6px' },
+  { pill: YELLOW, arrows: ['↙', '↙', '↙'], offset: '38px' }
+];
+
+const COORDS = {
+  'Rua Professora Olinda de Almeida Mercadante, 1585, Parque Santo Antônio, Residencial Dream, apto 102A': [-23.3141279, -45.950066],
+  'Rua Mário de S Carneiro, 164, Villa Branca, Jacareí': [-23.2657812, -45.9334441],
+  'Estrada Municipal Abade Biagino Chieffi, 2655, apto 102B, Floradas Arboville, Bairro Pagador Andrade': [-23.2270111, -45.9929628],
+  'Rua Glauber Rocha, 37, Condomínio Home Club, Villa Branca': [-23.2661894, -45.9447481],
+  'Rua João Batista de Oliveira Ramos, 221, Terras de São João': [-23.3169172, -45.9936994],
+  'Rua Alberto Caeiro, 62, Villa Branca': [-23.2715604, -45.9358911],
+  'Rua dos Operários, nº 89, Centro': [-23.307034, -45.9627889],
+  'Estrada do Limoeiro, 595, Bl 12, apto 301, Spazio Residencial Jacareí': [-23.2726284, -45.945765],
+  'Av. do Cristal, 355, rua 4, casa 33, Jd. Califórnia': [-23.2845239, -45.9408295],
+  'Rua Santa Cruz, 113, apto 132, Residencial Eco Vitta': [-23.2754888, -45.9460524],
+  'Av. Joaquim Bernardino de Souza, 320, apto 103, bloco 09, Vila Nova Aliança': [-23.3058806, -45.9502165],
+  'Av. Estevan Corbani, 210, casa 23, Condomínio Evidence, Jardim Santa Maria': [-23.2875007, -45.9669559],
+  'Rua Aliança, 427, bloco 9, apto 404': [-23.3003527, -45.9551829],
+  'Rua Livorno, 74, Residencial Santa Paula': [-23.2700447, -45.922406],
+  'Rua Manoel Pinheiro de Macedo, nº 71, Jardim Terras de Santa Helena': [-23.3191633, -45.9910782]
+};
+
+const DATA = [
+  ['CASAIS', 'Lucas e Letícia', 'Rua Professora Olinda de Almeida Mercadante, 1585, Parque Santo Antônio, Residencial Dream, apto 102A', 'Terça, 20h', ''],
+  ['CASAIS', 'Júnior e Cindy', 'Rua Mário de S Carneiro, 164, Villa Branca, Jacareí', 'Terça, 20h', ''],
+  ['CASAIS', 'Guilherme e Mariana', 'Estrada Municipal Abade Biagino Chieffi, 2655, apto 102B, Floradas Arboville, Bairro Pagador Andrade', 'Terça, 20h', ''],
+  ['CASAIS', 'Eduardo e Vanessa', 'Rua Glauber Rocha, 37, Condomínio Home Club, Villa Branca', 'Terça, 20h', ''],
+  ['CASAIS', 'Daniel e Mariana', 'Rua Genni de Siqueira Moretti, 123, Terras de Santa Helena, Jacareí/SP', 'Terça, 20h', ''],
+  ['CASAIS', 'Wellington e Thalma', 'Rua João Batista de Oliveira Ramos, 221, Terras de São João', 'Terça, 20h', ''],
+  ['CASAIS', 'Robert e Priscila', "Av. Guarda Civil Josué Sant'Ana, 598, Parque Itamarati, Residencial Flora, apto 104, torre 2", 'Terça, 20h', ''],
+  ['CASAIS', 'Rafael e Aline', 'Rua Alberto Caeiro, 62, Villa Branca', 'Terça, 20h', ''],
+  ['CASAIS', 'Gabriel e Jaddy', 'Rua Benedito Marciano, 59, Santana do Pedregulho', 'Terça, 20h', ''],
+  ['CASAIS', 'Jonas e Larissa', 'Rua dos Operários, nº 89, Centro', 'Terça, 20h', ''],
+  ['INFLUA', 'Larissa', 'Estrada do Limoeiro, 595, Bl 12, apto 301, Spazio Residencial Jacareí', 'Terça, 20h', 'Meninas 20+'],
+  ['INFLUA', 'Steven e Sâmia', 'Av. do Cristal, 355, rua 4, casa 33, Jd. Califórnia', 'Terça, 20h', 'Misto 12 a 14 anos'],
+  ['INFLUA', 'Carine', 'Rua Santa Cruz, 113, apto 132, Residencial Eco Vitta', 'Terça, 20h', 'Meninas 15 a 17 anos'],
+  ['INFLUA', 'Samuel', 'Av. Joaquim Bernardino de Souza, 320, apto 103, bloco 09, Vila Nova Aliança', 'Terça, 20h', 'Meninos 15 a 17 anos'],
+  ['INFLUA', 'Ana', 'Rua Livorno, 74, Residencial Santa Paula', 'Terça, 20h', 'Meninas 18 a 20 anos'],
+  ['INFLUA', 'Fernando', 'Rua Manoel Pinheiro de Macedo, nº 71, Jardim Terras de Santa Helena', 'Terça, 20h', 'Meninos 18+'],
+  ['MULHERES', 'Aline', 'Av. Estevan Corbani, 210, casa 23, Condomínio Evidence, Jardim Santa Maria', 'Sábado, 8h30', ''],
+  ['MULHERES', 'Antônia', 'Rua Aliança, 427, bloco 9, apto 404', 'Terça, 20h', '']
+];
+
+class Component extends DCLogic {
+  state = { tab: null };
+
+  mapDiv = React.createRef();
+  coords = Object.assign({}, COORDS);
+
+  get tab() { return this.state.tab || this.props.defaultTab || 'CASAIS'; }
+
+  componentDidMount() {
+    this.coords = Object.assign({}, COORDS, this.loadCache());
+    this.forceUpdate();
+    this.waitForLeaflet(0);
+    this.onResize = () => { if (this.map) this.map.invalidateSize(); };
+    window.addEventListener('resize', this.onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    if (this.map) { this.map.remove(); this.map = null; }
+  }
+
+  componentDidUpdate() { this.drawMarkers(); }
+
+  loadCache() {
+    try { return JSON.parse(localStorage.getItem('2oumais-geo-v1') || '{}'); } catch (e) { return {}; }
+  }
+
+  saveCache() {
+    try { localStorage.setItem('2oumais-geo-v1', JSON.stringify(this.coords)); } catch (e) {}
+  }
+
+  waitForLeaflet(tries) {
+    if (window.L) { this.initMap(); return; }
+    if (tries > 60) { this.setState({ geoErr: true }); return; }
+    setTimeout(() => this.waitForLeaflet(tries + 1), 200);
+  }
+
+  initMap() {
+    const el = this.mapDiv.current;
+    if (!el || this.map) return;
+    this.map = window.L.map(el, { scrollWheelZoom: false }).setView([-23.3053, -45.9658], 12);
+    window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap · © CARTO', subdomains: 'abcd', maxZoom: 19
+    }).addTo(this.map);
+    this.layer = window.L.layerGroup().addTo(this.map);
+    this.drawMarkers();
+    this.geocodeNext(0);
+  }
+
+  queries(address) {
+    const junk = /^(apto|apart\w*|bloco|bl|casa|torre|cond\w*|residencial|conjunto|spazio|villa\s|vila\s|rua\s\d)/i;
+    const parts = address.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+    const street = parts[0];
+    let number = '';
+    let hood = '';
+    for (let i = 1; i < parts.length; i++) {
+      const p = parts[i];
+      const digits = p.replace(/[^0-9]/g, '');
+      if (!number && digits && /^(n?º?\.?\s*)?\d+[a-z]?$/i.test(p.replace(/\s+/g, ' '))) { number = digits; continue; }
+      if (!hood && !/\d/.test(p) && !junk.test(p) && !/jacare/i.test(p)) hood = p;
+    }
+    const tail = ', Jacareí, São Paulo, Brasil';
+    const out = [];
+    if (number && hood) out.push(street + ', ' + number + ', ' + hood + tail);
+    if (number) out.push(street + ', ' + number + tail);
+    if (hood) out.push(street + ', ' + hood + tail);
+    out.push(street + tail);
+    return out;
+  }
+
+  geocodeNext(i) {
+    if (i >= DATA.length) { this.setState({ geoDone: true }); return; }
+    const address = DATA[i][2];
+    if (!address || this.coords[address]) { this.geocodeNext(i + 1); return; }
+    this.tryQueries(this.queries(address), 0, address, () => {
+      setTimeout(() => this.geocodeNext(i + 1), 1100);
+    });
+  }
+
+  tryQueries(list, k, address, done) {
+    if (k >= list.length) { done(); return; }
+    const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=br&q=' + encodeURIComponent(list[k]);
+    fetch(url, { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then((json) => {
+        if (json && json[0]) {
+          this.coords[address] = [parseFloat(json[0].lat), parseFloat(json[0].lon)];
+          this.saveCache();
+          this.setState({ geoTick: (this.state.geoTick || 0) + 1 });
+          done();
+        } else {
+          setTimeout(() => this.tryQueries(list, k + 1, address, done), 1100);
+        }
+      })
+      .catch(() => { setTimeout(() => this.tryQueries(list, k + 1, address, done), 1100); });
+  }
+
+  mapNote() {
+    if (this.state.geoErr) return 'Mapa indisponível — use “ver no mapa” nos cards';
+    const cat = this.tab;
+    const total = DATA.filter(function (r) { return r[0] === cat && r[2]; }).length;
+    const found = DATA.filter((r) => r[0] === cat && this.coords[r[2]]).length;
+    if (!this.state.geoDone) return 'Localizando endereços… ' + found + '/' + total;
+    if (!found) return 'Endereços desta categoria ainda não localizados — use “ver no mapa” nos cards';
+    if (found < total) return found + ' de ' + total + ' no mapa — os demais em “ver no mapa”';
+    return 'Toque no pin para ver o grupo';
+  }
+
+  drawMarkers() {
+    if (!this.layer || !window.L) return;
+    const L = window.L;
+    const cat = this.tab;
+    const accent = ACCENT[cat];
+    this.layer.clearLayers();
+    const pts = [];
+    DATA.forEach((r) => {
+      if (r[0] !== cat) return;
+      const c = this.coords[r[2]];
+      if (!c) return;
+      pts.push(c);
+      const icon = L.divIcon({
+        className: '',
+        iconSize: [26, 26],
+        iconAnchor: [13, 13],
+        html: '<div style="width:26px;height:26px;border-radius:50%;background:' + accent + ';border:3px solid #0A0A0A;box-shadow:0 0 0 2px ' + accent + '"></div>'
+      });
+      const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(r[2]);
+      L.marker(c, { icon: icon, title: r[1] })
+        .bindPopup('<strong style="font-size:15px">' + r[1] + '</strong><br>' + r[2] + '<br>' + r[3] + '<br><a href="' + maps + '" target="_blank" rel="noopener" style="color:#0A0A0A;font-weight:800">Abrir no Google Maps ↗</a>')
+        .addTo(this.layer);
+    });
+    if (pts.length) this.map.fitBounds(pts, { padding: [40, 40], maxZoom: 14 });
+    else this.map.setView([-23.3053, -45.9658], 12);
+  }
+
+  renderVals() {
+    const wa = 'https://wa.me/' + (this.props.whatsappNumber || '5512976055463');
+    const groups = DATA.map(function (r) {
+      return { cat: r[0], leaders: r[1], address: r[2], time: r[3], audience: r[4], hasAddress: !!r[2], accent: ACCENT[r[0]], wa: wa, maps: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(r[2]) };
+    });
+    const current = this.tab;
+    const self = this;
+    const tabs = ['CASAIS', 'INFLUA', 'MULHERES'].map(function (label) {
+      const on = label === current;
+      return {
+        label: label,
+        count: groups.filter(function (g) { return g.cat === label; }).length,
+        accent: ACCENT[label],
+        bg: on ? ACCENT[label] : 'transparent',
+        fg: on ? '#0A0A0A' : ACCENT[label],
+        onClick: function () { self.setState({ tab: label }); }
+      };
+    });
+    return {
+      tabs: tabs,
+      visibleGroups: groups.filter(function (g) { return g.cat === current; }),
+      waLink: wa,
+      mapRef: this.mapDiv,
+      geoNote: this.mapNote(),
+      arrowRows: ARROW_ROWS,
+      cornerArrows: CORNER_ROWS
+    };
+  }
+}
+
+</script>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#000"/><text x="50" y="58" text-anchor="middle" font-family="Helvetica,sans-serif" font-size="24" font-weight="bold" fill="#F0E8DC">2OU+</text></svg>
+</template>
+</body>
+</html>
